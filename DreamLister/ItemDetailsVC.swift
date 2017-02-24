@@ -105,8 +105,14 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
         {
             item = itemToEdit
         }
+        
+        
+        let itemtype = ItemType(context: context)
+        itemtype.type = typefield.text
+        
         item.toImage = picture
-
+        item.toItemType = itemtype
+        
         
         if let title = titleField.text {
             item.title = title
@@ -117,9 +123,7 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
         if let details = detailsField.text {
             item.details = details
         }
-        if let type = typefield.text {
-            item.toItemType?.type = type
-        }
+
         
         item.toStore  = stores[storePicker.selectedRow(inComponent: 0)]
         ad.saveContext()
