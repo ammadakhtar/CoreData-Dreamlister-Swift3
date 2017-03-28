@@ -96,6 +96,8 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
         
         let picture = Image(context: context)
         picture.image = thumgImg.image
+        let itemtype = ItemType(context: context)
+        itemtype.type = typefield.text
         
         if itemToEdit == nil
         {
@@ -105,10 +107,6 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
         {
             item = itemToEdit
         }
-        
-        
-        let itemtype = ItemType(context: context)
-        itemtype.type = typefield.text
         
         item.toImage = picture
         item.toItemType = itemtype

@@ -228,18 +228,14 @@
                                 <rect key="frame" x="16" y="237" width="288" height="59"/>
                                 <color key="backgroundColor" red="0.84644293820000005" green="0.84644293820000005" blue="0.84644293820000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="3Eb-wt-xSj"/>
-                                    <constraint firstAttribute="height" constant="59" id="RPI-PG-bus"/>
+                                    <constraint firstAttribute="height" constant="59" id="M3i-el-Xxa"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSW-vC-nwY">
-                                <rect key="frame" x="0.0" y="290" width="320" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="Hen-gI-6dK"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="333" width="320" height="173"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xF-Re-Tgr">
                                 <rect key="frame" x="16" y="530" width="288" height="30"/>
@@ -280,11 +276,12 @@
                             <constraint firstItem="jPz-dk-hDt" firstAttribute="leading" secondItem="i19-X9-3Qp" secondAttribute="leadingMargin" id="MB7-Gv-mWq"/>
                             <constraint firstItem="vsC-2c-xkj" firstAttribute="top" secondItem="mFO-Xm-orV" secondAttribute="bottom" constant="25" id="NJr-N6-1ez"/>
                             <constraint firstItem="JSL-5e-Ogn" firstAttribute="centerY" secondItem="jPz-dk-hDt" secondAttribute="centerY" id="NLp-xG-jH9"/>
-                            <constraint firstItem="5xF-Re-Tgr" firstAttribute="top" secondItem="YSW-vC-nwY" secondAttribute="bottom" constant="24" id="NXY-03-kBe"/>
                             <constraint firstItem="R0n-SG-Bf2" firstAttribute="trailing" secondItem="i19-X9-3Qp" secondAttribute="trailingMargin" id="OwQ-KD-fwe"/>
                             <constraint firstItem="R0n-SG-Bf2" firstAttribute="top" secondItem="vsC-2c-xkj" secondAttribute="bottom" constant="10" id="S3n-tp-GwW"/>
                             <constraint firstItem="5xF-Re-Tgr" firstAttribute="trailing" secondItem="i19-X9-3Qp" secondAttribute="trailingMargin" id="Tfn-gi-Fhe"/>
+                            <constraint firstItem="5xF-Re-Tgr" firstAttribute="top" secondItem="YSW-vC-nwY" secondAttribute="bottom" constant="24" id="bsE-yp-esK"/>
                             <constraint firstItem="WfC-dw-LTw" firstAttribute="top" secondItem="5xF-Re-Tgr" secondAttribute="bottom" constant="8" id="jys-K3-GRn"/>
+                            <constraint firstItem="YSW-vC-nwY" firstAttribute="centerX" secondItem="i19-X9-3Qp" secondAttribute="centerX" id="lPE-D1-Jxc"/>
                             <constraint firstItem="geq-8r-CKI" firstAttribute="trailing" secondItem="i19-X9-3Qp" secondAttribute="trailingMargin" id="lXs-LO-cwX"/>
                             <constraint firstItem="vsC-2c-xkj" firstAttribute="trailing" secondItem="i19-X9-3Qp" secondAttribute="trailingMargin" id="ljS-Ie-zcG"/>
                             <constraint firstItem="R0n-SG-Bf2" firstAttribute="leading" secondItem="JSL-5e-Ogn" secondAttribute="trailing" constant="8" id="mAS-mV-N48"/>
@@ -292,6 +289,7 @@
                             <constraint firstItem="YSW-vC-nwY" firstAttribute="leading" secondItem="i19-X9-3Qp" secondAttribute="leading" id="mb2-6O-woS"/>
                             <constraint firstItem="5xF-Re-Tgr" firstAttribute="leading" secondItem="i19-X9-3Qp" secondAttribute="leadingMargin" id="mnr-Rg-RZ8"/>
                             <constraint firstAttribute="trailing" secondItem="YSW-vC-nwY" secondAttribute="trailing" id="oum-KI-a1y"/>
+                            <constraint firstItem="YSW-vC-nwY" firstAttribute="top" secondItem="8is-m7-3E8" secondAttribute="bottom" constant="8" id="xfg-rw-HGu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add/Edit" id="hnQ-D7-GTD">

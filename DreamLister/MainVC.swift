@@ -63,7 +63,7 @@ class MainVC: UIViewController , UITableViewDelegate , UITableViewDataSource , N
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
         let priceSort = NSSortDescriptor(key: "price", ascending: true)
         let titleSort = NSSortDescriptor(key: "title", ascending: true)
-        let typeSort = NSSortDescriptor(key: "type", ascending: true)
+        let typeSort = NSSortDescriptor(key: "toItemType", ascending: true)
         
         if segment.selectedSegmentIndex == 0
         {
