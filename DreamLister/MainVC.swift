@@ -63,7 +63,7 @@ class MainVC: UIViewController , UITableViewDelegate , UITableViewDataSource , N
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
         let priceSort = NSSortDescriptor(key: "price", ascending: true)
         let titleSort = NSSortDescriptor(key: "title", ascending: true)
-        let typeSort = NSSortDescriptor(key: "toItemType", ascending: true)
+        let typeSort = NSSortDescriptor(key: "toItemType.type", ascending: false)
         
         if segment.selectedSegmentIndex == 0
         {
@@ -89,7 +89,7 @@ class MainVC: UIViewController , UITableViewDelegate , UITableViewDataSource , N
         do {
             try controller.performFetch()
         }catch{
-            let error = error as NSError
+            _ = error as NSError
         }
         
     }

@@ -84,7 +84,7 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
             self.stores = try context.fetch(fecthRequest)
             self.storePicker.reloadAllComponents()
         } catch{
-         let error = error as NSError
+         _ = error as NSError
         }
         
     }
@@ -135,7 +135,7 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
             titleField.text = item.title
             priceField.text =  "\(item.price)"
             detailsField.text = item.details
-            typefield.text = item.toItemType?.type
+            typefield.text = item.toItemType!.type
             
             thumgImg.image = item.toImage?.image as? UIImage
             
