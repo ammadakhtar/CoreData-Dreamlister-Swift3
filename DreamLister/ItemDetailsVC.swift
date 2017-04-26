@@ -36,25 +36,7 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
-//        let store = Store(context: context)
-//        store.name = "Walmart"
-//        let store2 = Store(context: context)
-//        store2.name = "Apple"
-//        let store3 = Store(context: context)
-//        store3.name = "Ford"
-//        let store4 = Store(context: context)
-//        store4.name = "Beats"
-//        let store5 = Store(context: context)
-//        store5.name = "Samsung"
-//        let store6 = Store(context: context)
-//        store6.name = "Phillips"
-//        let store7 = Store(context: context)
-//        store7.name = "SONY"
-//        let store8 = Store(context: context)
-//        store8.name = "QMobile"
-//        
-//        ad.saveContext()
-        getstores()
+        getStores()
         
         if itemToEdit != nil {
             loadItemData()
@@ -77,14 +59,26 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
     //update
     }
     
-    func getstores()
+    func getStores()
     {
-        let fecthRequest: NSFetchRequest<Store> = Store.fetchRequest()
+        let fetchRequest: NSFetchRequest<Store> = Store.fetchRequest()
+        let nameSort = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [nameSort]
+        
         do {
-            self.stores = try context.fetch(fecthRequest)
+            self.stores = try context.fetch(fetchRequest)
             self.storePicker.reloadAllComponents()
+            
+            // If Stores have never been loaded, add them and reload
+            if self.stores.count == 0 {
+                self.generateStores()
+                self.getStores()
+            }
+            
         } catch{
-         let error = error as NSError
+            let error = error as NSError
+            print(error.debugDescription)
+        
         }
         
     }
@@ -151,7 +145,7 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
                       }
                       index += 1
                     
-                }while(index < stores.count)
+                } while(index < stores.count)
             }
             
         }
@@ -180,6 +174,27 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
             thumgImg.image = img
         }
     imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func generateStores() {
+        let store = Store(context: context)
+        store.name = "Walmart"
+        let store2 = Store(context: context)
+        store2.name = "Apple"
+        let store3 = Store(context: context)
+        store3.name = "Ford"
+        let store4 = Store(context: context)
+        store4.name = "Beats"
+        let store5 = Store(context: context)
+        store5.name = "Samsung"
+        let store6 = Store(context: context)
+        store6.name = "Phillips"
+        let store7 = Store(context: context)
+        store7.name = "SONY"
+        let store8 = Store(context: context)
+        store8.name = "QMobile"
+        
+        ad.saveContext()
     }
     
     
