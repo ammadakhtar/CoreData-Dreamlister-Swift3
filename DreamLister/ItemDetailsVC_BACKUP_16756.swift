@@ -79,6 +79,7 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
             let error = error as NSError
             print(error.debugDescription)
         
+
         }
         
     }
@@ -129,7 +130,7 @@ class ItemDetailsVC: UIViewController , UIPickerViewDataSource , UIPickerViewDel
             titleField.text = item.title
             priceField.text =  "\(item.price)"
             detailsField.text = item.details
-            typefield.text = item.toItemType?.type
+            typefield.text = item.toItemType!.type
             
             thumgImg.image = item.toImage?.image as? UIImage
             

@@ -16,23 +16,27 @@ class MainVC: UIViewController , UITableViewDelegate , UITableViewDataSource , N
     var controller : NSFetchedResultsController <Item>!
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
+//        generateTestData()
         attemptfetch()
-        //generateTestData()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
-        configurecell(cell: cell, indexPath: indexPath as NSIndexPath)
+        configurecell(cell: cell, indexPath: indexPath)
         return cell
     }
     
-    func configurecell(cell: ItemCell , indexPath : NSIndexPath) {
-        let item = controller.object(at: indexPath as IndexPath)
+    func configurecell(cell: ItemCell , indexPath : IndexPath) {
+        let item = controller.object(at: indexPath)
         cell.configurecell(item: item)
     }
     
@@ -64,23 +68,20 @@ class MainVC: UIViewController , UITableViewDelegate , UITableViewDataSource , N
         let priceSort = NSSortDescriptor(key: "price", ascending: true)
         let titleSort = NSSortDescriptor(key: "title", ascending: true)
         let typeSort = NSSortDescriptor(key: "toItemType.type", ascending: false)
+
+       
         
-        if segment.selectedSegmentIndex == 0
-        {
-            
+        switch segment.selectedSegmentIndex {
+        case 0:
             fetchRequest.sortDescriptors = [dateSort]
-        }
-        else if segment.selectedSegmentIndex == 1
-        {
+        case 1:
             fetchRequest.sortDescriptors = [priceSort]
-        }
-        else if segment.selectedSegmentIndex == 2
-        {
+        case 2:
             fetchRequest.sortDescriptors = [titleSort]
-        }
-        else if segment.selectedSegmentIndex == 3
-        {
+        case 3:
             fetchRequest.sortDescriptors = [typeSort]
+        default:
+            break
         }
     
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
@@ -89,7 +90,9 @@ class MainVC: UIViewController , UITableViewDelegate , UITableViewDataSource , N
         do {
             try controller.performFetch()
         }catch{
-            _ = error as NSError
+            let error = error as NSError
+            print(error.debugDescription)
+
         }
         
     }
@@ -149,7 +152,7 @@ class MainVC: UIViewController , UITableViewDelegate , UITableViewDataSource , N
         case.update:
             if let indexPath = indexPath {
                 let cell = tableView.cellForRow(at: indexPath) as! ItemCell
-                configurecell(cell: cell, indexPath: indexPath as NSIndexPath)
+                configurecell(cell: cell, indexPath: indexPath)
             }
             break
         case.move:
